@@ -39,17 +39,29 @@ const locations = [
     "52.470919,-1.896327",
     "38.653047,-121.539730"
 ];
-//  USED AI TO GENERATE LOCATIONS AND THEN TEST THEM
+
+// Used AI to generate locations and then tested them
+
+// Current location (accessible from map.js)
+let actualLocation = [];
 
 function randomLocation() {
-    const random = locations[Math.floor(Math.random() * locations.length)];
 
-    // Using the official Google Maps Embed API endpoint for Street View
-    const url = "https://www.google.com/maps/embed/v1/streetview" +
-                "?key=AIzaSyC5671eu0WOtBBmFtrIjuTzgkhBsdF7Z3U" +
-                "&location=" + encodeURIComponent(random);
+    const random =
+        locations[Math.floor(Math.random() * locations.length)];
+
+    // Save the selected coordinates
+    actualLocation = random.split(",").map(Number);
+
+    // Google Maps Street View
+    const url =
+        "https://www.google.com/maps/embed/v1/streetview" +
+        "?key=YOUR_API_KEY" +
+        "&location=" + encodeURIComponent(random);
 
     $("#streetview").attr("src", url);
+
+    console.log(actualLocation); // For testing
 }
 
 // Load first location
@@ -62,8 +74,16 @@ $("#next").click(function () {
 
 // MAP PART
 
-document.getElementById("map").addEventListener("click",()=>{
+/*
+document.getElementById("map").addEventListener("click", () => {
     const frame = document.getElementById("mapframe");
     frame.style.display = "block";
-    frame.src="https://www.google.com/maps/embed/v1/search?key=AIzaSyC5671eu0WOtBBmFtrIjuTzgkhBsdF7Z3U&q=55.761226,37.594540"
-})
+    frame.src =
+        "https://www.google.com/maps/embed/v1/search?key=YOUR_API_KEY&q=" +
+        actualLocation.join(",");
+});
+*/
+
+// GMaps Embed does not support pointers so switched to OSM
+// ============= MAP PART ===============
+// Implemented in map.js
