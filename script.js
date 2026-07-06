@@ -39,7 +39,7 @@ const locations = [
     "52.470919,-1.896327",
     "38.653047,-121.539730"
 ];
-//  USED AI TO GENERATE LOCATIONS
+//  USED AI TO GENERATE LOCATIONS AND THEN TEST THEM
 
 function randomLocation() {
     const random = locations[Math.floor(Math.random() * locations.length)];
@@ -59,3 +59,11 @@ randomLocation();
 $("#next").click(function () {
     randomLocation();
 });
+
+// MAP PART
+
+document.getElementById("map").addEventListener("click",()=>{
+    const frame = document.getElementById("mapframe");
+    frame.style.display = "block";
+    frame.src="https://www.google.com/maps/embed/v1/search?key=AIzaSyC5671eu0WOtBBmFtrIjuTzgkhBsdF7Z3U&q=55.761226,37.594540"
+})
