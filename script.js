@@ -42,7 +42,6 @@ const locations = [
 
 // Used AI to generate locations and then tested them
 
-// Current location (accessible from map.js)
 let actualLocation = [];
 
 function randomLocation() {
@@ -56,7 +55,7 @@ function randomLocation() {
     // Google Maps Street View
     const url =
         "https://www.google.com/maps/embed/v1/streetview" +
-        "?key=YOUR_API_KEY" +
+        "?key=AIzaSyC5671eu0WOtBBmFtrIjuTzgkhBsdF7Z3U" +
         "&location=" + encodeURIComponent(random);
 
     $("#streetview").attr("src", url);
@@ -79,7 +78,7 @@ document.getElementById("map").addEventListener("click", () => {
     const frame = document.getElementById("mapframe");
     frame.style.display = "block";
     frame.src =
-        "https://www.google.com/maps/embed/v1/search?key=YOUR_API_KEY&q=" +
+        "https://www.google.com/maps/embed/v1/search?key=&q=" +
         actualLocation.join(",");
 });
 */

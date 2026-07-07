@@ -62,3 +62,22 @@ map.on("click", function(e){
         `<b>Distance:</b> ${(distance/1000).toFixed(2)} km`;
 });
 
+// BUTTON TOGGLE
+
+const mapDiv = document.getElementById("map");
+const toggle = document.getElementById("toggle");
+
+toggle.addEventListener("click", () => {
+    if (mapDiv.style.display === "none" || mapDiv.style.display === "") {
+        mapDiv.style.display = "block";
+        toggle.textContent = "Close Map";
+
+        // Fix Leaflet rendering after becoming visible
+        setTimeout(() => {
+            map.invalidateSize();
+        }, 100);
+    } else {
+        mapDiv.style.display = "none";
+        toggle.textContent = "Open Map";
+    }
+});
