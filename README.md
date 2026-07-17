@@ -1,5 +1,5 @@
 # WorldGuess
-WorldGuess is a game inspired by GeoGuessr. Players are shown a random street view and are supposed to mark the location on the world map.
+WorldGuess is a game inspired by GeoGuessr. Players are shown a random street view and are supposed to mark the location on the world map. I built it because I have always loved the game geoguessr.
 
 ## Tech Stack
 - OpenStreet Maps for The World Map
